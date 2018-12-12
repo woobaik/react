@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
+import MyName from './MyName';
 import './App.css';
 
 class App extends Component {
+
+
   render() {
 
-    const name = "Haram"
+    const name = "Haram";
     return (
-      <div className="App">
-        <div>김하람의 영어 이름 : { name }</div>
+      <div className="App" >
+        <div>김하람의 영어 이름 : <MyName name="기무"/>
+        </div>
         <div>김낸뚜</div>
         <div>
           {
