@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div>
       <form>
-        <label htmlFor="name">
+        <label htmlF or="name">
          { labelText}
         </label>
         <input type="text" id="name" />
