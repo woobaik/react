@@ -3,17 +3,21 @@ import ReactDOM from 'react-dom';
 
 
 //Component
-import NameList from './components/NameList'
+import Layout from './components/Layout';
+
 
 class App extends Component {
   render() {
     return(
       <div>
-        <NameList number="I am Number 1" />
-        <NameList number="I am NUmber 2" />
+        <Layout />
       </div>
     )
   }
 }
 
 ReactDOM.render( <App />, document.getElementById('root'))
+
+if (module.hot) {
+  module.hot.accept()
+}
