@@ -5,12 +5,15 @@ import ReactDOM from 'react-dom';
 //Component
 import Layout from './components/Layout';
 
+//DATA
+import names from './data'
+
 
 class App extends Component {
   render() {
     return(
       <div>
-        <Layout />
+        <Layout names={names} />
       </div>
     )
   }
