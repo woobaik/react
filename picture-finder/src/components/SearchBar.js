@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
 
 
   onInputChange = (e) => {
-    this.setState({ term: e.target.value.toUpperCase()} )
+    this.setState({ term: e.target.value })
 
   }
 

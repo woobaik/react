@@ -1,15 +1,21 @@
 import React from 'react';
+import unsplash from '../api/unsplash'
 
 //component
 import SearchBar from './SearchBar'
+import ImageList from './ImageList'
 
 class App extends React.Component {
 
+  state = { images: [] };
 
+  onFormSubmit = async (term) => {
+    const response = await unsplash.get('/search/photos', {
+      params : {query: term},
+    });
 
-  onFormSubmit = (term) => {
-    console.log(term);
-
+    this.setState({ images: response.data.results })
+    console.log(this.state.images);
   }
 
 
@@ -17,6 +23,7 @@ class App extends React.Component {
     return(
       <div className="ui container" style={ { marginTop: '10px'}}>
         <SearchBar onSubmit={this.onFormSubmit}/>
+        <ImageList images={this.state.images}/>
       </div>
     )
   }
