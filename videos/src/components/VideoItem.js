@@ -1,11 +1,15 @@
+import './videoItem.css';
+
 import React from 'react';
+
 
 const VideoItem = ( { video } ) => {
   return(
-    <div>
-      <h3>{video.title}</h3>
-      <img src={video.thumbnails.medium.url} />
-      <h6>Published by <strong>{video.channelTitle}</strong></h6>
+    <div className="video-item item">
+      <img className="ui image" src={video.thumbnails.medium.url} />
+      <div className="content">
+        <div className="header">{video.title}</div>
+      </div>
     </div>
   )
 }
