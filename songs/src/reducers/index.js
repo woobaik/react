@@ -5,7 +5,7 @@ const songReducer = () => {
     { title: 'Bohemian Rapsody', duration: '7:45'},
     {title: 'Killer Queen', duration: '3:14' },
     {title: 'I Was Born to Love You', duration: '4:01' },
-    {title: 'Don\`t Stop Me Now', duration: '4:42' },
+    {title: 'Don\'t Stop Me Now', duration: '4:42' },
     {title: 'Under Pressure', duration: '3:55' },
     {title: 'Radio Gaga', duration: '5:42'}
   ];
