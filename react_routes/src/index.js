@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route} from 'react-router-dom';
+import { MemoryRouter, Route} from 'react-router-dom';
 
 
 //Components
@@ -12,7 +12,7 @@ import Profiles from './components/profiles';
 
 const App = () => {
   return (
-      <BrowserRouter>
+      <MemoryRouter>
         <div>
           <div>
             Header
@@ -21,7 +21,7 @@ const App = () => {
           <Route path="/posts" component={Posts}/>
           <Route path="/profile" component={Profiles} />
         </div>
-      </BrowserRouter>
+      </MemoryRouter>
   )
 }
 
