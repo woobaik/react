@@ -5,6 +5,7 @@ class PostList extends React.Component {
     return(
       <div>
         PostList
+        This is not worlking
       </div>
     )
   }
