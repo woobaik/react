@@ -29,7 +29,6 @@ class AddressList extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         {this.renderList()}
@@ -39,7 +38,7 @@ class AddressList extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-  return { addresses: state.Addresses}
+  return { addresses: state.addresses}
 }
 
 export default connect(mapStateToProps,{ selectPerson })(AddressList);

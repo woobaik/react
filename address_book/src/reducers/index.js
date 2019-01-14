@@ -18,6 +18,6 @@ const SelectPerson = (previousPerson = null,action) => {
 }
 
 export default combineReducers({
-    Addresses : AddressList,
-    SelectPerson: SelectPerson
+    addresses : AddressList,
+    selectPerson: SelectPerson
 })
