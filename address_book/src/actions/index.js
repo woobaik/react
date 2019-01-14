@@ -1,4 +1,4 @@
-const selectPerson = (name, number) => {
+export const selectPerson = (name, number) => {
   return {
     type: 'SELECT_PERSON',
     payload: {

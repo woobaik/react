@@ -1,18 +1,45 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { selectPerson } from '../actions'
 
-const AddressList = () => {
-  return (
-    <div>
-      Address List
-    </div>
-  )
+class AddressList extends React.Component {
 
-  const mapStateToProps = (state) => {
-    console.log(state)
+  onSelectAddress = (event) => {
 
-    return state;
+    event.preventDefault()
+
+  }
+
+  renderList() {
+    return this.props.addresses.map(address => {
+      return (
+        <div key={address.name}>
+          <div>
+            {address.name}
+          </div>
+          <div>
+            {address.number}
+          </div>
+          <div>
+            <button onClick={()=>this.props.selectPerson(address)}>Select</button>
+          </div>
+        </div>
+      )
+    })
+  }
+
+  render() {
+    console.log(this.props)
+    return (
+      <div>
+        {this.renderList()}
+      </div>
+    )
   }
 }
 
-export default connect(mapStateToProps)(AddressList);
+const mapStateToProps = (state) => {
+  return { addresses: state.Addresses}
+}
+
+export default connect(mapStateToProps,{ selectPerson })(AddressList);
