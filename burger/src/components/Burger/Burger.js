@@ -15,9 +15,15 @@ const burger = (props) => {
 
   let transformIngre = Object.keys(props.ingredient).map(ingKey => {
     return [...Array(props.ingredient[ingKey])].map((_,i) => {
-      return <BurgerIngredient keys={ingKey + i} type={ingKey} />
+      return <BurgerIngredient key={ingKey + i} type={ingKey} />
     })
-  })
+  }).reduce((arr,el) => {
+    return arr.concat(el)
+  },[]);
+
+  if (transformIngre.length === 0) {
+    transformIngre = <p>Please start Adding Ingredient</p>
+  }
 
   console.log(transformIngre);
   return(
