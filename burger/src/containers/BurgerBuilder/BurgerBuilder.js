@@ -17,13 +17,26 @@ class BurgerBuilder extends Component {
 
   state = {
     ingredient: {
-      salad: 1,
-      bacon: 1,
-      cheese: 1,
-      meat: 1
+      salad: 0,
+      bacon: 0,
+      cheese: 0,
+      meat: 0
     },
-    totalPrice: 100
+    totalPrice: 100,
+    purchaseable: false
   }
+
+  updatePurchaseState = (ingredient) => {
+
+    let sum = Object.keys(ingredient).map(ingKey => {
+      return ingredient[ingKey];
+    }).reduce((prev,current)=> {
+      return prev + current
+    },0);
+    this.setState({purchaseable: sum > 0});
+
+  }
+
 
   addIngredientHandler = (type) => {
     const oldCount = this.state.ingredient[type];
@@ -35,7 +48,7 @@ class BurgerBuilder extends Component {
     const addedPrice = INGREDIENT_PRICE[type];
     const updatedPrice = this.state.totalPrice + addedPrice;
     this.setState({ingredient: updatedIngredient, totalPrice: updatedPrice})
-
+    this.updatePurchaseState(updatedIngredient)
   }
 
   removeIngredientHandler = (type) => {
@@ -43,7 +56,7 @@ class BurgerBuilder extends Component {
     if (oldCount <= 0) {
       return;
     }
-    const updatedCount = this.state.ingredient[type] - oldCount;
+    const updatedCount = this.state.ingredient[type] - 1;
     const updatedIngredient = {
       ...this.state.ingredient
     }
@@ -51,6 +64,7 @@ class BurgerBuilder extends Component {
     const oldPrice = this.state.totalPrice;
     const updatedPrice = oldPrice - INGREDIENT_PRICE[type]
     this.setState({ingredient:updatedIngredient, totalPrice:updatedPrice})
+    this.updatePurchaseState(updatedIngredient)
   }
 
   render() {
@@ -67,7 +81,9 @@ class BurgerBuilder extends Component {
         <Burger ingredient={this.state.ingredient}/>
         <BuildControls add={this.addIngredientHandler}
                        remove={this.removeIngredientHandler}
-                       disabled={disabledInfo}/>
+                       disabled={disabledInfo}
+                       totalPrice={this.state.totalPrice}
+                       purchaseable={this.state.purchaseable}/>
       </Aux>
     );
   }
