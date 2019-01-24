@@ -7,7 +7,6 @@ import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
-
   const INGREDIENT_PRICE = {
     salad: 0.3,
     bacon: 1.3,
@@ -19,10 +18,10 @@ class BurgerBuilder extends Component {
 
   state = {
     ingredient: {
-      salad: 3,
-      bacon: 1,
-      cheese: 1,
-      meat: 1
+      salad: 0,
+      bacon: 0,
+      cheese: 0,
+      meat: 0
     },
     totalPrice: 100,
     purchaseable: false,
@@ -99,7 +98,7 @@ class BurgerBuilder extends Component {
               ingredient={this.state.ingredient}
               purchaseCanceled={this.purchaseCancelHandler}
               purchaseContinued={this.purchaseContinueHandler}
-              price={this.totalPrice}/>
+              price={this.state.totalPrice}/>
         </Modal>
         <Burger ingredient={this.state.ingredient}/>
         <BuildControls add={this.addIngredientHandler}
