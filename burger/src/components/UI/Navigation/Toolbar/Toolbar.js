@@ -9,9 +9,9 @@ const toolbar = () => (
     <div className={classes.Logo}>
       <Logo />
     </div>
-    <div className={classes.DesktopOnly}>
+    <nav className={classes.DesktopOnly}>
       <NavigationItems />
-    </div>
+    </nav>
   </header>
 )
 

@@ -22,8 +22,7 @@
 
 @media (min-width: 500px) {
   .NavigationItem {
-    margin: 10px 0;
-    display: block;
+    margin: 0;
     width: auto;
     height: 100%;
     display: flex;
@@ -41,5 +40,7 @@
   .NavigationItem a:active,
   .NavigationItem a.hover {
     color: #40A4C8;
+    border-bottom: 4px solid #40A4C8;
+
   }
 }
