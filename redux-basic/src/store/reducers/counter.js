@@ -3,7 +3,7 @@ const initialState = {
   results:[]
 }
 
-const reducer = ( state=initialState, action ) => {
+const counterReducer = ( state=initialState, action ) => {
   switch (action.type) {
     case ('INCREMENT') :
       return {
@@ -27,23 +27,9 @@ const reducer = ( state=initialState, action ) => {
         counter: state.counter - action.value
       }
 
-    case ('STORE_RESULT') :
-      return {
-        ...state,
-        results: state.results.concat({id: new Date(), value: state.counter})
-      }
-
-    case ('DELETE_RESULT') :
-        const updatedResults = state.results.filter(result => result.id !== action.id)
-
-        return {
-          ...state,
-          results: updatedResults
-        }
-
     default:
       return state
   }
 };
 
-export default reducer;
+export default counterReducer;
