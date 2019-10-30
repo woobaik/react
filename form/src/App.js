@@ -16,17 +16,35 @@ class App extends Component {
     })
   }
 
+  handleRemoveCard = idx => {
+    console.log("itw working tho")
+    const targetCard = this.state.input.split("")
+    targetCard.splice(idx, 1)
+    this.setState({ input: targetCard.join("") })
+  }
+
   render() {
     return (
       <div className='App'>
-        <label for='input'>Text input</label>
-        <input name='input' id='input' onChange={this.handleChange}></input>
+        <label htmlFor='input'>Text input</label>
+        <input
+          name='input'
+          id='input'
+          onChange={this.handleChange}
+          value={this.state.input}
+        ></input>
         <p>
           <Validation length={this.state.length} />
         </p>
+        <p>{this.state.input}</p>
         <p>
-          {this.state.input.split("").map(letter => {
-            return <Char letter={letter}></Char>
+          {this.state.input.split("").map((letter, idx) => {
+            return (
+              <Char
+                letter={letter}
+                clicked={() => this.handleRemoveCard(idx)}
+              ></Char>
+            )
           })}
         </p>
       </div>
