@@ -17,7 +17,6 @@ class App extends Component {
   }
 
   handleRemoveCard = idx => {
-    console.log("itw working tho")
     const targetCard = this.state.input.split("")
     targetCard.splice(idx, 1)
     this.setState({ input: targetCard.join("") })
