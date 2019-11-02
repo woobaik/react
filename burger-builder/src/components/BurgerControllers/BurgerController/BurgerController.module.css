@@ -1,0 +1,29 @@
+.BurgerController {
+  margin: 1rem;
+  display: flex;
+}
+
+.label {
+  font-weight: bold;
+  margin: 1rem;
+}
+.quantity {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  border: 1px solid goldenrod;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.minus {
+  background-color: pink;
+  padding: 0.5rem 3rem;
+}
+
+.plus {
+  background-color: greenyellow;
+  padding: 0.5rem 3rem;
+}

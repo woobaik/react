@@ -3,8 +3,6 @@ import BurgerIngredient from "./BurgerIngredient/BurgerIngredient"
 import classes from "./Burger.module.css"
 
 const burger = props => {
-  console.log(props.ingredients)
-
   return (
     <div className={classes.Burger}>
       <BurgerIngredient type='bread-top'></BurgerIngredient>
