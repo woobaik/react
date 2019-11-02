@@ -3,7 +3,7 @@ import classes from "./BurgerIngredient.module.css"
 
 const burgerIngredient = props => {
   let ingredient = null
-  console.log(props.type)
+
   switch (props.type) {
     case "bread-top":
       ingredient = (
@@ -29,7 +29,6 @@ const burgerIngredient = props => {
       ingredient = <div className={classes.Bacon}></div>
       break
     default:
-      console.log("hi")
       ingredient = null
   }
 
