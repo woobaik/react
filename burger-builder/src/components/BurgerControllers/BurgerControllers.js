@@ -10,12 +10,14 @@ const BurgerControllers = props => {
       {ingredients.map(ig => {
         return (
           <BurgerController
+            onMinus={props.onMinus}
             key={ig}
             type={ig}
             quantity={props.ingredients[ig]}
           ></BurgerController>
         )
       })}
+      <div>Total Price : {props.totalPrice.toFixed(2)}</div>
     </div>
   )
 }
