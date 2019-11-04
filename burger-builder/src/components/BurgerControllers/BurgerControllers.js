@@ -11,6 +11,7 @@ const BurgerControllers = props => {
         return (
           <BurgerController
             onMinus={props.onMinus}
+            onPlus={props.onPlus}
             key={ig}
             type={ig}
             quantity={props.ingredients[ig]}

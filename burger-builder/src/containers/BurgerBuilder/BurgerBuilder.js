@@ -12,10 +12,10 @@ const INGREDIENTPRICE = {
 class BurgerBuilder extends Component {
   state = {
     ingredients: {
-      bacon: 1,
-      salad: 2,
-      meat: 1,
-      cheese: 1
+      bacon: 0,
+      salad: 0,
+      meat: 0,
+      cheese: 0
     },
     totalPrice: 4
   }
@@ -31,13 +31,19 @@ class BurgerBuilder extends Component {
     this.setState({ ...updatedState })
   }
 
-  hanglePlusBtn = () => {
-    console.log("plus btn is initiated")
+  hanglePlusBtn = type => {
+    const updatedState = { ...this.state }
+    updatedState.ingredients[type] += 1
+    updatedState.totalPrice += INGREDIENTPRICE[type]
+    this.setState(updatedState)
   }
   render() {
     return (
       <Aux>
-        <Burger ingredients={this.state.ingredients}></Burger>
+        <Burger
+          ingredients={this.state.ingredients}
+          emptyIngredient={this.state.totalPrice === 4.0}
+        ></Burger>
         <BurgerControllers
           onMinus={this.handleMinusBtn}
           onPlus={this.hanglePlusBtn}
