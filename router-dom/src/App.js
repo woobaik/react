@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
 import "./App.css"
 import Home from "./components/Home"
 import About from "./components/About"
-import User from "./components/User"
+import Users from "./components/Users"
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
               <Link to='/about'>About</Link>
             </li>
             <li>
-              <Link to='/user'>User</Link>
+              <Link to='/users'>Users</Link>
             </li>
           </ul>
         </nav>
@@ -27,8 +27,8 @@ function App() {
           <Route path='/about'>
             <About></About>
           </Route>
-          <Route path='/user'>
-            <User />
+          <Route path='/users'>
+            <Users />
           </Route>
           <Route path='/'>
             <Home></Home>
