@@ -4,26 +4,25 @@ const createStore = redux.createStore
 const initialState = {
   counter: 0
 }
-const rootReducer = (state = initialState, action) => {
-  if (action.type === "INCREMENT_COUNTER") {
+
+const reducer = (state = initialState, action) => {
+  if (action.type === "ADD_ONE_COUNTER") {
     return {
       ...state,
       counter: (state.counter += 1)
     }
-  } else if (action.type === "ADD_VALUE") {
+  } else if (action.type === "ADD_COUNTER_VALUE") {
     return {
       ...state,
-      counter: (state.counter += action.value)
+      counter: (state.counter += action.type)
     }
   }
 }
-const store = createStore(rootReducer)
-store.subscribe(() => {
-  console.log("[subscribe]", store.getState())
+
+const rootStore = createStore(reducer)
+rootStore.subscribe(() => {
+  console.log("[subscribe]", rootStore.getState())
 })
-//reducer
 
-//action
-
-store.dispatch({ type: "INCREMENT_COUNTER" })
-store.dispatch({ type: "ADD_VALUE", value: 4 })
+rootStore.dispatch({ type: "ADD_ONE_COUNTER" })
+rootStore.dispatch({ type: "ADD_COUNTER_VALUE", value: 4 })
