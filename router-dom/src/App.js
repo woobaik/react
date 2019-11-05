@@ -1,5 +1,11 @@
 import React from "react"
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom"
+import {
+  BrowserRouter as Router,
+  Link,
+  Switch,
+  Route,
+  NavLink
+} from "react-router-dom"
 import "./App.css"
 import Home from "./components/Home"
 import About from "./components/About"
@@ -15,7 +21,7 @@ function App() {
               <Link to='/home'>Home</Link>
             </li>
             <li>
-              <Link to='/about'>About</Link>
+              <NavLink to='/about'>About</NavLink>
             </li>
             <li>
               <Link to='/users'>Users</Link>
