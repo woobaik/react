@@ -2,6 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 
 const counters = props => {
+  console.log(props)
   let lists = props.results.map(result => {
     return (
       <li key={result.id} onClick={() => props.removeResult(result.id)}>
@@ -21,13 +22,13 @@ const counters = props => {
       <div>
         RESULTS :<ul>{lists}</ul>
       </div>
-      <button onClick={props.addResult}>SAVE RESULT</button>
+      <button onClick={() => props.addResult(props.cnt)}>SAVE RESULT</button>
     </div>
   )
 }
 
 const mapStateToProps = state => {
-  return { cnt: state.counter, results: state.results }
+  return { cnt: state.ctr.counter, results: state.result.results }
 }
 
 const mapDispatchToProps = dispatch => {
@@ -36,7 +37,7 @@ const mapDispatchToProps = dispatch => {
     minusOne: () => dispatch({ type: "MINUS_ONE_TO_COUNTER" }),
     minusTen: () => dispatch({ type: "MINUS_TEN", payload: 10 }),
     plusTen: () => dispatch({ type: "PLUS_TEN", payload: 10 }),
-    addResult: () => dispatch({ type: "SAVE_RESULT" }),
+    addResult: value => dispatch({ type: "SAVE_RESULT", payload: value }),
     removeResult: id => dispatch({ type: "REMOVE_RESULT", payload: id })
   }
 }
