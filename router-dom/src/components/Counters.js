@@ -2,9 +2,12 @@ import React from "react"
 import { connect } from "react-redux"
 
 const counters = props => {
-  console.log(props)
   let lists = props.results.map(result => {
-    return <li>{result}</li>
+    return (
+      <li key={result.id} onClick={() => props.removeResult(result.id)}>
+        {result.value}
+      </li>
+    )
   })
   return (
     <div>
@@ -33,7 +36,8 @@ const mapDispatchToProps = dispatch => {
     minusOne: () => dispatch({ type: "MINUS_ONE_TO_COUNTER" }),
     minusTen: () => dispatch({ type: "MINUS_TEN", payload: 10 }),
     plusTen: () => dispatch({ type: "PLUS_TEN", payload: 10 }),
-    addResult: () => dispatch({ type: "SAVE_RESULT" })
+    addResult: () => dispatch({ type: "SAVE_RESULT" }),
+    removeResult: id => dispatch({ type: "REMOVE_RESULT", payload: id })
   }
 }
 
